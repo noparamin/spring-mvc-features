@@ -14,21 +14,22 @@ import java.io.IOException;
 
 @Slf4j
 @Controller
+//RestController = @ResponseBody + @Controller
 public class ResponseBodyController {
 
     @GetMapping("/response-body-string-v1")
-    public void responeBodyV1(HttpServletResponse response) throws IOException {
+    public void responseBodyV1(HttpServletResponse response) throws IOException {
         response.getWriter().write("ok");
     }
 
     @GetMapping("/response-body-string-v2")
-    public ResponseEntity<String> responeBodyV2() {
+    public ResponseEntity<String> responseBodyV2() {
         return new ResponseEntity<String>("ok", HttpStatus.OK);
     }
 
     @ResponseBody
     @GetMapping("/response-body-string-v3")
-    public String responeBodyV3() {
+    public String responseBodyV3() {
         return "ok";
     }
 
